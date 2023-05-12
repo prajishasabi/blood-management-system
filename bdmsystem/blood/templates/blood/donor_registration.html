@@ -1,0 +1,116 @@
+{% extends 'blood/master.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/master.css' %}">
+
+{% block content %}
+
+                
+   <br>
+   <br>
+   <br>   
+   <br>
+        
+		
+<div class="container mt-10">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="row" style="background-color:rgb(134, 181, 246)">
+        <div class="col-sm-12 mx-t3 mb-4">
+          <h2 class="text-center text-danger">Donor Registration</h2>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="name-f">First Name</label>
+          <input type="text" class="form-control" name="fname" id="name-f" placeholder="Enter your first name." required>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="name-l">Last name</label>
+          <input type="text" class="form-control" name="lname" id="name-l" placeholder="Enter your last name." required>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email." required>
+        </div>
+        
+        <div class="col-md-6 form-group">
+            <label for="bg">Blood Group</label>
+            <select id="bg" name ="bg" class="form-control browser-default custom-select">
+            <option selected>Please select one</option>
+            <option value="A+" class="form-control">A+</option>
+            <option value="B+"class="form-control">B+</option>
+            <option value="AB+" class="form-control">AB+</option>
+            <option value="O+" class="form-control">O+</option>
+            <option value="A-" class="form-control">A-</option>
+            <option value="B-" class="form-control">B-</option>
+            <option value="AB-" class="form-control">AB-</option>
+            <option value="O-" class="form-control">O-</option>
+
+            </select>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label for="age">Age</label>
+            <input type="number" name="age" class="form-control" id="age" placeholder="" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label for="sex">Gender</label>
+            <select id="sex" class="form-control browser-default custom-select" name="gender">
+              <option value="male" name ="gender">Male</option>
+              <option value="female" name ="gender">Female</option>
+              <option value="unspesified" name ="gender">Unspecified</option>
+            </select>
+          </div>
+        <div class="col-md-6 form-group">
+          <label for="address">Address Line</label>
+          <input type="address" class="form-control" name="address" id="address" placeholder="Locality/House/Street no." required>
+        </div>
+        {% comment %} <div class="col-md-6 form-group">
+          <label for="address-2">Address Line-2</label>
+          <input type="address" class="form-control" name="address" id="address-2" placeholder="Village/City Name." required>
+        </div> {% endcomment %}
+        <div class="col-md-6 form-group">
+          <label for="district">District</label>
+          <select id="district" name="district" class="form-control browser-default custom-select">
+            <option selected>Please select one</option>
+            <option value="Kasargod" class="form-control">Kasargod</option>
+            <option value="Kannur"class="form-control">Kannur</option>
+            <option value="Wayanad" class="form-control">Wayanad</option>
+            <option value="Kozhikode" class="form-control">Kozhikode</option>
+            <option value="Malappuram" class="form-control">Malappuram</option>
+            <option value="Palakkad" class="form-control">Palakkad</option>
+            <option value="Thrissur" class="form-control">Thrissur</option>
+            <option value="Eranakulam" class="form-control">Eranakulam</option>
+            <option value="Alappuzha" class="form-control">Alappuzha</option>
+            <option value="Idukki" class="form-control">Idukki</option>
+            <option value="Kottayam" class="form-control">Kottayam</option>
+            <option value="Pathanamthitta" class="form-control">Pathanamthitta</option>
+            <option value="Kollam" class="form-control">Kollam</option>
+            <option value="Trivandram" class="form-control">Trivandram</option>
+
+            </select>
+        </div>
+        {% comment %} <div class="col-md-2 form-group">
+          <label for="zip">Postal-Code</label>
+          <input type="number" class="form-control" name="Zip" id="zip" placeholder="Postal-Code." required>
+        </div> {% endcomment %}
+        <div class="col-sm-6 form-group">
+          <label for="tel">Phone</label>
+          <input type="number" name="phone" class="form-control" id="tel" placeholder="Enter Your Contact Number." required>
+        </div>
+        <div class="col-sm-4 form-group">
+          <label for="image">Photo</label>
+          <input type="file" name="image" class="form-control" id="photo" required>
+        </div>
+       
+        <div class="col-sm-12">
+          <input type="checkbox" class="form-check d-inline" id="chb" required><label for="chb" class="form-check-label">&nbsp;I accept all terms and conditions.
+          </label>
+        </div>
+  
+        <div class="d-grid gap-2 col-4 mx-auto mb-2">
+        <button class="btn btn-primary float-right">Submit</button>
+        </div>
+  
+      </div>
+    </form>
+  </div>
+  {% endblock %}

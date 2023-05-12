@@ -1,0 +1,51 @@
+{% extends 'blood/master.html' %}
+{% load static %}
+{% block content %}
+<section class="vh-100">
+    <h4 class="text-center pt-3">Donor Login</h4>
+    <div class="container py-5" style="height:400px">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;height:450px;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="{% static 'images/donor.jpg' %}"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height:450px;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form method ="POST">
+                     {% csrf_token %}
+                    
+  
+  
+                    <!-- to error: add class "has-danger" -->
+                    {{message}}
+                    <div class="form-group">
+                      <label for="InputEmail1">Email Address</label>
+                      <input type="text" class="form-control form-control-sm mt-3" id="InputEmail1"
+                        aria-describedby="emailHelp" name="email">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputPassword1">Password</label>
+                      {% comment %} <a href="#" style="float:right;font-size:12px;">Forgot password?</a> {% endcomment %}
+                      <input type="password" name="password" class="form-control form-control-sm mt-3" id="InputPassword1">
+                    </div>
+                    <button type="submit" name="sign_in" class="btn btn-primary btn-block mt-5">Sign in</button>
+  
+                    <div class="sign-up mt-3">
+                      Don't have an account? <a href="{% url 'blood:donor_registration' %}">Create One</a>
+                    </div>
+                    
+                  </form>
+            
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock content %}

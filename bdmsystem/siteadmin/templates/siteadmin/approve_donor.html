@@ -1,0 +1,69 @@
+{% extends 'siteadmin/master.html'%}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Approve Donors</h2>
+    <div class="table-responsive pt-3">
+        <table class="table table-success table-bordered">
+        <thead>
+            <tr>
+                <th scope ="col">SNo</th>
+                <th scope ="col">Name</th>
+                <th scope ="col">Email</th>
+                <th scope ="col">Blood Group</th>
+
+                <th scope ="col">gender</th>
+
+                <th scope ="col">Address</th>
+                <th scope ="col">District</th>
+
+                <th scope ="col">Phone</th>
+                <th scope ="col">Donor pic</th>
+                <th scope ='col'>Action </th>
+
+
+                
+                
+
+            </tr>
+            {% for donor in donors_list %}
+            <form method="POST">
+                {% csrf_token %}
+            <tr>
+               
+                
+                <td> {{ forloop.counter }} </td> {# for serial number #}
+                <!-- <td><img src="{{ seller.pic.url }}" height="100px" alt=""></td> -->
+                <td>{{ donor.f_name }}</td>{#  seller-variable in foor loop #}
+                <td>{{ donor.email }}</td>
+                <td>{{ donor.blood_group }}</td>
+
+                <td>{{ donor.gender }}</td>
+
+                <td>{{ donor.address }}</td>
+                <td>{{ donor.district}}</td>
+                <td>{{ donor.phone }}</td>
+                
+                {% if donor.pic == 'static/images/defaulimage.png' %}
+                <td><img src="{% static 'images/defaulimage.png' %}" height="100px" alt=""></td>
+                {% else %}
+                <td><img src="{{ donor.pic.url }}" height="100px" alt=""></td> 
+                {% endif %}
+
+                <td><button class ="btn btn-success" type='submit' name='approve'>Approve</button>
+                <button  class ="btn btn-danger" type ='submit' name= 'reject'>Reject</button></td>
+                <td><input type="hidden" name="donor_id" value ={{donor.id}} id=""></td>
+                
+
+
+
+
+            </tr>
+        </form>
+
+            {% endfor %}
+
+
+        </thead>
+    </table>
+{% endblock %}

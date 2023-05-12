@@ -1,0 +1,38 @@
+{% extends 'donor/master.html' %}
+{% load static %}
+
+<head>
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/master.css' %}">
+</head>
+{% block content %}
+<div class ="container">
+  <H4 class="text-center pt-5">My Blood Request History</H4><br>
+
+<div class="table-responsive pt-5">
+    <table class="table table-success table-bordered">
+      <th>SINo</th>
+      <th>Patient Name</th>
+      <th>Patient Age</th>
+      <th>Blood Group</th>
+
+      <th>Reason</th>
+      <th>Blood Unit</th>
+      <th>Date</th>
+      <th>Status</th>
+      <tr class="table-danger" {% for request in requests %}>
+        <td>{{forloop.counter}}</td>
+        <td>{{request.patient_name}}</td>
+        <td>{{request.patient_age}}</td>
+        <td>{{request.blood_group}}</td>
+        <td>{{request.reason}}</td>
+        <td>{{request.unit}}</td>
+        <td>{{request.date}}</td>
+        <td>{{request.status}}</td>
+      </tr>
+      {% endfor%}
+
+    </table>
+  </div>
+</div>
+  {% endblock %}

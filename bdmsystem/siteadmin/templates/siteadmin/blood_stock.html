@@ -1,0 +1,147 @@
+{% extends 'siteadmin/master.html' %}
+{% block content %}
+<!-- <style>
+  .xyz {
+
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+  }
+</style> -->
+<div class="container-fluid" style="background-color: rgb(175, 236, 255)">
+  <br>
+  <div class="container">
+
+    <div class="row mt-5">
+      <div class="col-sm-3">
+        <div class="card bg-danger">
+          <div class="card-body">
+            <div class="blood">
+              <h2 class="text-center">A+ <i class="fas fa-tint"></i></h2>
+            </div><br>
+            <div class="text-center">
+              {{A1.unit}}ml
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card bg-danger">
+          <div class="card-body">
+            <div class="blood">
+              <h2 class="text-center">B+ <i class="fas fa-tint"></i></h2>
+            </div><br>
+            <div class="text-center">
+              {{B1.unit}}ml
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card bg-danger">
+          <div class="card-body">
+            <div class="blood">
+              <h2 class="text-center">O+ <i class="fas fa-tint"></i></h2>
+            </div><br>
+            <div class="text-center">
+              {{O1.unit}}ml
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card bg-danger">
+          <div class="card-body">
+            <div class="blood">
+              <h2 class="text-center">AB+ <i class="fas fa-tint"></i></h2>
+            </div><br>
+            <div class="text-center">
+              {{AB1.unit}}ml
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card bg-danger">
+          <div class="card-body">
+            <div class="blood">
+              <h2 class="text-center">A- <i class="fas fa-tint"></i></h2>
+            </div><br>
+            <div class="text-center">
+              {{A2.unit}}ml
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card bg-danger">
+          <div class="card-body">
+            <div class="blood">
+              <h2 class="text-center">B- <i class="fas fa-tint"></i></h2>
+            </div><br>
+            <div class="text-center">
+              {{B2.unit}}ml
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card bg-danger">
+          <div class="card-body">
+            <div class="blood">
+              <h2 class="text-center">O- <i class="fas fa-tint"></i></h2>
+            </div><br>
+            <div class="text-center">
+              {{O2.unit}}ml
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card bg-danger">
+          <div class="card-body">
+            <div class="blood">
+              <h2 class="text-center">AB- <i class="fas fa-tint"></i></h2>
+            </div><br>
+            <div class="text-center">
+              {{AB2.unit}}ml
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+          
+
+          
+    <br>
+
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+        <div class="card bg-danger">
+          <div class="card-body">
+            <div class="blood">
+              <h2 class="text-center">Total Unit <i class="fas fa-tint"></i></h2>
+            </div>
+            <div class="text-center">
+              {{totalbloodunit}}ml
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  {% endblock content %}

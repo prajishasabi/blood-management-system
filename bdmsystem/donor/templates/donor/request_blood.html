@@ -1,0 +1,72 @@
+{% extends 'donor/master.html' %}
+{% load static %}
+
+<head>
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/master.css' %}">
+</head>
+{% block content %}
+
+
+
+<div class="container"> 
+    <div class="row  pt-5">
+	<div class="card login-form mx-auto"style="width: 500px;background-color:bisque;">
+	<div class="card-body";>
+		<h3 class="card-title text-center"><b>Make Blood Request</b></h3>
+		<div class="card-text">
+			<!--
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+			<form method ="POST">
+				{% csrf_token %}
+				<!-- to error: add class "has-danger" -->
+				<div class="form-group">
+					<label for="pname">Patient Name</label>
+					<input type="text" name="pname" class="form-control form-control-sm" id="pname" aria-describedby="emailHelp">
+				</div>
+				<div class="form-group">
+					<label for="page">Patient Age</label>
+					<input type="number" name="age" class="form-control form-control-sm" id="page">
+				</div>
+                <div class="form-group">
+					<label for="reason">Reason</label>
+					<input type="text" name="reason" class="form-control form-control-sm" id="reason" aria-describedby="reasonHelp">
+				</div>
+                <div class="form-group">
+                    <label for="bg">Blood Group</label>
+                    <select id="bg"  name = "blood_group" class="form-control browser-default custom-select">
+                    <option selected>Please select one</option>
+                    <option value="A+" class="form-control">A+</option>
+                    <option value="B+"class="form-control">B+</option>
+                    <option value="AB+" class="form-control">AB+</option>
+                    <option value="O+" class="form-control">O+</option>
+                    <option value="A-" class="form-control">A-</option>
+                    <option value="B-" class="form-control">B-</option>
+                    <option value="AB-" class="form-control">AB-</option>
+                    <option value="O-" class="form-control">O-</option>
+
+                    </select>
+                </div>
+				<div class ="form-group">
+					<label for="nature">Nature of blood requirement</label>
+					<select id="nature" class="form-control browser-default custom-select" name="nature">
+					<option value="emergency">Emergency</option>
+					<option value="non-emergency">Non-emergency</option>
+			  		</select>
+				</div>
+                <div class="form-group">
+					<label for="bunit">Unit(ml)</label>
+					<input type="bunit" class="form-control form-control-sm" id="bunit"  name = "unit" aria-describedby="emailunit">
+				</div>
+                <div class="form-group pt-2 ">
+				<button type="submit" class="btn btn-primary btn-block">Request</button>
+				
+                </div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'donor/master.html'%}
+{% load static %}
+{% block content %}
+
+<div class="container"> 
+    <div class="row pt-5">
+	<div class="card login-form mx-auto" style="width: 400px;background-color: bisque;">
+	<div class="card-body";>
+		<h3 class="card-title text-center"><b>Donate Blood </b></h3>
+		<div class="card-text">
+			<!--
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+			<form method="POST">
+				{% csrf_token %}
+				<!-- to error: add class "has-danger" -->
+				
+                <div class="form-group">
+                    <label for="bg">Blood Group</label>
+                    <select id="bg"  name ="blood_group" class="form-control browser-default custom-select" >
+                    <option selected>Please select one</option>
+                    <option value="A+" class="form-control">A+</option>
+                    <option value="B+"class="form-control">B+</option>
+                    <option value="AB+" class="form-control">AB+</option>
+                    <option value="O+" class="form-control">O+</option>
+                    <option value="A-" class="form-control">A-</option>
+                    <option value="B-" class="form-control">B-</option>
+                    <option value="AB-" class="form-control">AB-</option>
+                    <option value="O-" class="form-control">O-</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+					<label for="bunit">Unit(ml)</label>
+					<input type="bunit" name="unit" class="form-control form-control-sm" id="bunit" aria-describedby="emailHelp">
+				</div>
+                <div class="form-group">
+					<label for="disease">Disease(if any)</label>
+					<input type="disease" name="disease" class="form-control form-control-sm" id="disease" aria-describedby="disease">
+				</div>
+                <div class="form-group">
+					<label for="age">Age</label>
+					<input type="age" class="form-control form-control-sm" id="age" name ="age" aria-describedby="age">
+				</div>
+                <div class="form-group pt-3">
+				<button type="submit" class="btn btn-primary btn-block">Donate</button>
+				
+                </div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

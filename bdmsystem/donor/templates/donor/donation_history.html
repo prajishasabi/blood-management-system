@@ -1,0 +1,34 @@
+{% extends 'donor/master.html'%}
+{% load static %}
+{% block content %}
+<div class="container">
+    <H4 class="text-center pt-5">My Donation History</H4><br>
+    <div class="table-responsive pt-5">
+        <table class="table table-success table-bordered">
+            <tr >
+                <th scope = "col">Donor's Name</th>
+                <th scope="col">Donor's Age</th>
+                <th scope="col">Disease (if any)</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr class ="table-danger" {% for donation in donations %}>
+                <td>{{donation.donor.f_name}}</td>
+                <td>{{donation.donor.age}}</td>
+                <td>{{donation.disease}}</td>
+                <td>{{donation.bloodgroup}}</td>
+                <td>{{donation.unit}}</td>
+                <td>{{donation.date}}</td>
+                <td>{{donation.status}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+            
+{% endblock %}

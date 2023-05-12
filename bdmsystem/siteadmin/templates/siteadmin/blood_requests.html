@@ -1,0 +1,54 @@
+{% extends 'siteadmin/master.html'%}
+
+{% load static %}
+{% block content %}
+<div class="container">
+    <H4 class="text-center pt-5">Blood Requests Details</H4><br>
+    <div class="table-responsive pt-3">
+        <table class="table table-success table-bordered">
+            <tr>
+                <th scope="col">SINo</th>
+                <th scope="col">Patients Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Nature of requirement</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Unit(ml)</th>
+                <th scope="col">Request Date</th>
+                <th scope="col">Requested By </th>
+                <th scope="col">Status</th>
+
+                <th scope="col">Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for br in blood_request %}
+            <form method="POST">
+                {% csrf_token %}
+            <tr class ="table-danger">
+                <td>{{forloop.counter}}</td>
+                <td>{{br.patient_name}}</td>
+                <td>{{br.patient_age}}</td>
+                <td>{{br.reason}}</td>
+                <td>{{br.nature}}</td>
+                <td>{{br.blood_group}}</td>
+                <td>{{br.unit}}</td>
+                <td>{{br.date}}</td>
+                {% if br.request_by_patient == '' %} 
+                <td>{{br.donor.f_name}}</td>
+                {% else %}
+
+                <td>{{br.patient_name}}</td>
+                {% endif %}
+                <td>{{br.status}}</td>
+                <td><button class ="btn btn-success" type='submit' name='approve'>Approve</button>
+                    <button  class ="btn btn-danger" type ='submit' name= 'reject'>Reject</button></td>
+
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+</div>
+            
+{% endblock %}

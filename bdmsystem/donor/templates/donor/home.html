@@ -1,0 +1,68 @@
+{% extends 'donor/master.html' %}
+ {% block content%}
+ <style>
+    .card-body{
+      background-color: bisque;
+    }
+  </style>
+  <div class="container">
+  
+   
+      <div class="row mt-5">
+        <div class="col-sm-3">
+          <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                  <i class="fas fa-sync-alt xyz"></i>
+                </div><br>
+                <div>
+                  Request Made <br>
+                    {{requests}}
+                </div>                            
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-3">
+          <div class="card bg-light">
+              <div class="card-body">
+                  <div class="blood">
+                    <i class="fas fa-sync xyz"></i>
+                  </div><br>
+                  <div>
+                      Pending Request <br>
+                      {{pendingrequest}}
+                  </div>                            
+              </div>
+            </div>
+        </div>
+  
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                      <i class="fas fa-check-circle xyz"></i>
+                    </div><br>
+                    <div>
+                         Approved Request<br>
+                        {{requestapproved}}
+                    </div>                            
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                      <i class="fas fa-times-circle xyz"></i>
+                    </div><br>
+                    <div>
+                         Rejected Request <br>
+                        {{requestrejected}}
+                    </div>                            
+                </div>
+              </div>
+          </div>
+      </div>
+          {% endblock %}
+  
