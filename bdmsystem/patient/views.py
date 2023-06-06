@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from blood.models import BloodRequest, Donor, Patient
 
 # Create your views here.
@@ -38,6 +38,10 @@ def blood_request(request):
 def request_history(request):
     return render(request,'patient/request_history.html')
 
+def logout(request):
+    del request.session['patient']
+    request.session.flush()
+    return redirect('blood:index')
 
 def show_donors(request):
     print(request)

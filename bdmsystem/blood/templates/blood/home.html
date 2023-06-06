@@ -1,6 +1,22 @@
 {% extends 'blood/master.html' %}
 {% load static %}
 {% block content %}
+<style>
+  .mission:hover{
+    transition: width 4s, height 4s;
+    width:300px;
+    height:300px;
+  }
+  .image:hover{
+    transition: width 4s, height 4s;
+    width:300px;
+    height:300px;
+  }
+
+    
+  
+  
+</style>
 
 <div class="slider-detail">
   <div id="carouselExampleFade" class="carousel slide carousel-fade">
@@ -84,9 +100,9 @@
               <img class="d-block w-100" src="{% static 'images/slide-03.jpg' %}" alt="Third slide">
               <div class="carousel-caption vdg-cur d-none d-md-block">
                   <h5 class=" bounceInDown">Donate Blood & Save a Life</h5>
-                  <p class=" bounceInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, <br>
+                  <!-- <p class=" bounceInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, <br>
                       aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis <br>
-                      sed sagittis at, sagittis quis neque. Praesent.</p>
+                      sed sagittis at, sagittis quis neque. Praesent.</p> -->
 
                   <div class=" vbh">
 
@@ -171,7 +187,8 @@
     <div class="container-fluid">
       <div class="row " >
         <div class="col-md-3 ">
-            <div class="card text-black  mb-3 mt-5 ml-5" style="width:300px;height:200px;background-color: rgb(231, 117, 117);">
+   
+    <div class="card text-black  mb-3 mt-5 ml-5 mission " style=" background-color: rgb(231, 117, 117);">
               <div class="card-header text-center bg-white" style="font-size:20px;font-family: 'Times New Roman', Times, serif;">Our Mission</div>
               <div class="card-body">
                 <!-- <h5 class="card-title">Info card title</h5> -->
@@ -186,7 +203,7 @@
       </div> 
         <div class="col-md-3">
      
-          <div class="card text-black  mb-3 mt-5" style="width:300px;height:200px;background-color: rgb(231, 117, 117);">
+          <div class="card text-black  mb-3 mt-5 mission"  style="background-color: rgb(231, 117, 117);">
             <div class="card-header text-center bg-white" style="font-size:20px;font-family: 'Times New Roman', Times, serif;">Our Vision</div>
             <div class="card-body">
               <!-- <h5 class="card-title">Info card title</h5> -->
@@ -203,7 +220,6 @@
 
     <br>
     <br>
-v
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6">
@@ -257,21 +273,21 @@ Blood is the most precious gift that anyone can give to another person — the g
     <div class="row">
       <h2 class="text-center" style="font-family:cursive; padding-top: 50px">Steps for using BDMS</h2>
       <div class=" col-md-3">
-        <img src="{% static 'images/registraion.jpg' %}" style="height:150px;" >
+        <img src="{% static 'images/registraion.jpg' %}"  class="image"  style="height:150px;" >
 
         <h4>1-Registraion</h4>
         The donors who wish to donate thier blood should register in BDMS
 
       </div>
       <div class=" col-md-3">
-        <img src="{% static 'images/seeing.jpg' %}" style="height:150px;">
+        <img src="{% static 'images/seeing.jpg' %}"  class="image" style="height:150px;">
 
         <h4>2-Seeing</h4>
         By the approval from our admin you can wait untill a patient matches your blood group.
 
       </div>
       <div class=" col-md-3">
-        <img src="{% static 'images/donationstep.jpg' %}"style="height:150px">
+        <img src="{% static 'images/donationstep.jpg' %}"  class="image" style="height:150px">
 
     
         <h4>3-Donation</h4>
@@ -280,7 +296,7 @@ Blood is the most precious gift that anyone can give to another person — the g
 
       </div>
       <div class=" col-md-3">
-        <img src="{% static 'images/savelife.png' %}"style="height:150px;width:200px" >
+        <img src="{% static 'images/savelife.png' %}"  class="image" style="height:150px;width:200px" >
 
   
         <h4>4-Save Life</h4>

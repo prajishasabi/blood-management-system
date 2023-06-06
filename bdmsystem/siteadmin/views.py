@@ -11,7 +11,25 @@ from django.db.models import Sum
 # Create your views here.
 
 def home(request):
-    return render(request,'siteadmin/home.html')
+    totalunit=Stock.objects.aggregate(Sum('unit'))
+    dict={
+
+        'A1':Stock.objects.get(bloodgroup="A+"),
+        'A2':Stock.objects.get(bloodgroup="A-"),
+        'B1':Stock.objects.get(bloodgroup="B+"),
+        'B2':Stock.objects.get(bloodgroup="B-"),
+        'AB1':Stock.objects.get(bloodgroup="AB+"),
+        'AB2':Stock.objects.get(bloodgroup="AB-"),
+        'O1':Stock.objects.get(bloodgroup="O+"),
+        'O2':Stock.objects.get(bloodgroup="O-"),
+        # 'totaldonors':Donor.objects.all().count(),
+        'totalbloodunit':totalunit['unit__sum'],
+        # 'totalrequest':BloodRequest.objects.all().count(),
+        # 'totalapprovedrequest':BloodRequest.objects.all().filter(status='Approved').count()
+    }
+    render(request,'siteadmin/home.html',context=dict)
+
+
 
 def donors(request):
     donor = Donor.objects.filter(status ='approved')
@@ -100,6 +118,12 @@ def approve_donations(request,d_id):
     donation.save()
     
     return redirect ('siteadmin:donations')
+
+# def logout(request):
+#     del request.session['']
+#     request.session.flush()
+#     return redirect('blood:index')
+
 
 
 
